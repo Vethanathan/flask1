@@ -163,7 +163,7 @@ def ve():
     labels = ['Jan', 'Feb', 'Mar', 'Apr']
     values = [12, 19, 3, 5]
 
-    plt.pie(labels, values)
+    plt.bar(labels, values)
     plt.savefig('static/images/chart.png')
     return render_template("test.html")
 @app.route('/valid')
