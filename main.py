@@ -134,12 +134,12 @@ def upload():
         form.Author_Name.data = ' '
         file = form.file.data # First grab the file
         current_filename = file.filename
-        file.save(os.path.join(os.path.abspath(os.path.dirname(__file__)),app.config['UPLOAD_FOLDER'],secure_filename(file.filename))) # Then save the file
+        #file.save(os.path.join(os.path.abspath(os.path.dirname(__file__)),app.config['UPLOAD_FOLDER'],secure_filename(file.filename))) # Then save the file
         
         
         if 1:
             string=daredevil.customize_card(Project_Name,Author_Name,current_filename)
-            fin = open("templates\\dashboard.html", "rt")
+            fin = open("templates/dashboard.html", "rt")
             #read file contents to string
             data = fin.read()
             #replace all occurrences of the required string
@@ -147,7 +147,7 @@ def upload():
             #close the input file
             fin.close()
             #open the input file in write mode
-            fin = open("templates\\dashboard.html", "wt")
+            fin = open("templates/dashboard.html", "wt")
             #overrite the input file with the resulting data
             fin.write(data)
             #close the file
