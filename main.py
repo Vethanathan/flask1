@@ -96,7 +96,7 @@ def dashboard():
 @app.route('/download/<filename>')
 def download(filename):
     try:
-        path = "static\\files\\{}".format(filename)
+        path = "static/files/{}".format(filename)
         print(path)
         return send_file(path, as_attachment=True)
     except Exception as e:
@@ -141,7 +141,7 @@ def upload():
         zipping.unzip(current_filename)
         # return url_for('home')
         # string = zipping.stringyfy()
-        path_list=zipping.list_files("static\\files\\extracted\\"+filename_alias)
+        path_list=zipping.list_files("static/files/extracted/"+filename_alias)
         plag_flag , value,index = deadpool.is_plag(path_list)
         if len(value) < 2:
             v = "2.png"
@@ -152,13 +152,13 @@ def upload():
         print()
         global_dict = value
         if plag_flag:
-            file_path = "static\\files\\"+current_filename
+            file_path = "static/files/"+current_filename
             if os.path.exists(file_path):
                 os.remove(file_path)
             else:
                 print("illaa")
 
-            folder_path = "static\\files\\extracted\\"+filename_alias
+            folder_path = "static/files/extracted/"+filename_alias
 
             if os.path.exists(folder_path):
                 shutil.rmtree(folder_path)
@@ -179,7 +179,7 @@ def upload():
             return render_template("valid.html",dict = global_dict,file=v)
         else:
             string=daredevil.customize_card(Project_Name,Author_Name,current_filename)
-            fin = open("templates\\dashboard.html", "rt")
+            fin = open("templates/dashboard.html", "rt")
             #read file contents to string
             data = fin.read()
             #replace all occurrences of the required string
@@ -187,7 +187,7 @@ def upload():
             #close the input file
             fin.close()
             #open the input file in write mode
-            fin = open("templates\\dashboard.html", "wt")
+            fin = open("templates/dashboard.html", "wt")
             #overrite the input file with the resulting data
             fin.write(data)
             #close the file
@@ -223,7 +223,7 @@ def plaigarism():
 def vetha():
     print("inga iruken")
     string='<div class="col-md-4"> <div class="card p-3 mb-2"> <div class="d-flex justify-content-between"> <div class="d-flex flex-row align-items-center"> <div class="icon"> <i class="bx bxl-mailchimp"></i> </div> <div class="ms-2 c-details"> <h6 class="mb-0">Vethanathan</h6> <span>4 days ago</span> </div> </div> <div class="badge"> <span>Python</span> </div> </div> <div class="mt-5"> <h3 class="heading">Automatic Attendence System</h3><br> <div class="badge"><button class="btn btn-primary btn-sm"> <i class="fa fa-plus"></i> Download </button> </div> <div class="mt-5"></div> </div> </div> </div> \n <!-- <p>vetha</p> -->'
-    fin = open("templates\\dashboard.html", "rt")
+    fin = open("templates/dashboard.html", "rt")
     #read file contents to string
     data = fin.read()
     #replace all occurrences of the required string
@@ -231,16 +231,15 @@ def vetha():
     #close the input file
     fin.close()
     #open the input file in write mode
-    fin = open("templates\\dashboard.html", "wt")
+    fin = open("templates/dashboard.html", "wt")
     #overrite the input file with the resulting data
     fin.write(data)
     #close the file
     fin.close()
-    # with open("templates\\upload.html", "r+") as f:
+    # with open("templatesupload.html", "r+") as f:
     #         print("naana vandhuten daaa!!!")
     #         html = f.read()
     #         f.seek(0)
     #         f.write(html.replace("<!-- <p>vetha</p> -->", string))
     return render_template("dashboard.html")
-
 
