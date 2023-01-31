@@ -243,6 +243,4 @@ def vetha():
     #         f.write(html.replace("<!-- <p>vetha</p> -->", string))
     return render_template("dashboard.html")
 
-if __name__ == '__main__':
-    app.run(debug=True, port=os.getenv("PORT", default=5000))
 
