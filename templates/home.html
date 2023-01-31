@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- CSS -->
+    <link rel="icon" href="{{ url_for('static',filename='images/logo.ico') }}">
+    <link href="{{ url_for('static',filename='css/style1.css') }}" rel="stylesheet">
+    <!-- <link rel="stylesheet" href="style.css"> -->
+
+    <title>Project</title>
+</head>
+
+<body>
+   <script defer="defer" src="{{ url_for('static',filename='js/annoy_me.js') }}"></script>
+    <!-- <script src="{{ url_for('static',filename='js/annoy_me.js') }}"></script> -->
+</body>
+<div class="container">
+    <form method="POST" action="/dashboard">
+        <h2>Login</h2>
+        <label for="email">Email</label>
+        <input type="email" name="email" id="email" required>
+        <label for="password">Password</label>
+        <input type="password" name="password" id="password" required autocomplete>
+        <a href="/signup">New user ? Signup</a>
+        <button id="submitBtn">Submit</button>
+        <p id="help-text"></p>
+    </form>
+</div>
+</html>
